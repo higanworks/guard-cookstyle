@@ -1,6 +1,6 @@
 require "cookstyle"
 group :cookbooks do
-  guard :cookstyle do
+  guard :cookstyle, cookbook_dirs: %w[cookbooks site-cookbooks] do
     watch(/(cookbooks|site-cookbooks).+\.rb$/)
     watch(%r{(?:.+/)?\.rubocop\.yml$}) { |m| File.dirname(m[0]) }
   end
