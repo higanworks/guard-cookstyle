@@ -2,7 +2,7 @@
 
 [![Gem Version](https://badge.fury.io/rb/guard-cookstyle.svg)](https://badge.fury.io/rb/guard-cookstyle)
 
-guard-rubocop allows you to automatically check Chef cookbook style with [Cookstyle](https://github.com/chef/cookstyle) when files are modified.
+guard-cookstyle allows you to automatically check Chef cookbook style with [Cookstyle](https://github.com/chef/cookstyle) when files are modified.
 
 Cookstyle is a wrapper of rubocop, so most of the codes were based on [yujinakayama/guard-rubocop]((https://github.com/yujinakayama/guard-rubocop)).
 
