@@ -18,8 +18,7 @@ module Guard
         notification: :failed,
         cli: nil,
         hide_stdout: false,
-        cookbook_dirs: %w[cookbooks site-cookbooks],
-        rubocop_config: '.cookstyle.yml',
+        cookbook_dirs: %w[cookbooks site-cookbooks]
       }.merge(options)
 
       @failed_paths = []

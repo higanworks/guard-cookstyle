@@ -1,4 +1,5 @@
 require 'json'
+require 'cookstyle'
 
 module Guard
   class Cookstyle
@@ -32,7 +33,7 @@ module Guard
           command.concat(%w[--format progress]) # Keep default formatter for console.
         end
 
-        command.concat(['--config', @options[:rubocop_config]])
+        command.concat(['--config', ::Cookstyle.config])
         command.concat(['--format', 'json', '--out', json_file_path])
         command << '--force-exclusion'
         command.concat(args_specified_by_user)
