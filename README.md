@@ -32,6 +32,8 @@ Add the default Guard::Cookstyle definition to your Guardfile by running:
 $ guard init cookstyle
 ```
 
+Rules of Rubocop definition are loaded from `.cookstyle.yml` by default.
+
 ## Usage
 
 Please read the [Guard usage documentation](https://github.com/guard/guard#readme).
@@ -41,7 +43,7 @@ Please read the [Guard usage documentation](https://github.com/guard/guard#readm
 You can pass some options in `Guardfile` like the following example:
 
 ```ruby
-guard :cookstyle, all_on_start: false, cli: ['--format', 'clang'], cookbook_dirs: ['mycookbooks'] do
+guard :cookstyle, all_on_start: false, cli: ['--format', 'clang'], cookbook_dirs: ['mycookbooks'], rubocop_config: '.rubocop.yml' do
   # ...
 end
 ```
@@ -67,8 +69,21 @@ launchy: nil           # Filename to launch using Launchy after RuboCop runs.
                        #   default: nil
 cookbook_dirs: []      # Directory of Cookbooks to check.
                        #   default: %w[cookbooks site-cookbooks]
+rubocop_config:        # Rubocop Config path.
+                       #   default: '.cookstyle.yml'
 ```
 
+### Tips
+
+In order to use it with Rubocop, we recommend that `.cookstyle.yml` inherits `.rubocop.yml` and add cookbook specific rules.
+
+```
+---
+inherit_from: .rubocop.yml
+
+... rules for cookbooks
+
+```
 
 ## Contributing
 

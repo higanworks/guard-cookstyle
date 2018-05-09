@@ -32,6 +32,7 @@ module Guard
           command.concat(%w[--format progress]) # Keep default formatter for console.
         end
 
+        command.concat(['--config', @options[:rubocop_config]])
         command.concat(['--format', 'json', '--out', json_file_path])
         command << '--force-exclusion'
         command.concat(args_specified_by_user)
@@ -39,9 +40,9 @@ module Guard
         if paths.any?
           command.concat(paths)
         else
-          cookbook_dirs = @options[:cookbook_dirs].any? ? @options[:cookbook_dirs] : %w[cookbooks site-cookbooks]
-          command.concat(cookbook_dirs)
+          command.concat(@options[:cookbook_dirs])
         end
+        command
       end
 
       def should_add_default_formatter_for_console?
