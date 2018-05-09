@@ -10,9 +10,6 @@ module Guard
       end
 
       def run(paths = [])
-        puts '========='
-        puts paths
-        puts '========='
         command = build_command(paths)
         passed = system(*command)
 
@@ -29,7 +26,6 @@ module Guard
       end
 
       def build_command(paths)
-        puts paths
         command = ['cookstyle']
 
         if should_add_default_formatter_for_console?
