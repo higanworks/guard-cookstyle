@@ -1,0 +1,6 @@
+group :cookbooks do
+  guard :cookstyle do
+    watch(/(cookbooks|site-cookbooks).+\.rb$/)
+    watch(%r{(?:.+/)?\.cookstyle(?:_todo)?\.yml$}) { |m| File.dirname(m[0]) }
+  end
+end
